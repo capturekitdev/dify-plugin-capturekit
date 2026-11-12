@@ -1,0 +1,29 @@
+identity:
+  author: capturekitdev
+  name: capturekit
+  label:
+    en_US: CaptureKit
+  description:
+    en_US: 'Web pages from CaptureKit: read any page as clean Markdown, take a screenshot or PDF of it (full page or mobile view), or get an AI summary of what the site offers.'
+  icon: icon.svg
+  tags:
+  - utilities
+  - image
+credentials_for_provider:
+  api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: API Key
+    placeholder:
+      en_US: Enter your CaptureKit API key
+    help:
+      en_US: Get an API key in the CaptureKit dashboard.
+    url: https://app.capturekit.dev
+tools:
+- tools/page_content.yaml
+- tools/screenshot.yaml
+- tools/analyze_page.yaml
+extra:
+  python:
+    source: provider/capturekit.py

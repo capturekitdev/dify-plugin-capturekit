@@ -1,0 +1,40 @@
+identity:
+  name: page_content
+  author: capturekitdev
+  label:
+    en_US: Page Content
+description:
+  human:
+    en_US: Read a web page and get it as clean Markdown, with its title, description and links. 1 credit.
+  llm: Loads a web page in a browser and returns its content as Markdown, with its title, description and links. By default only the main content is kept (menus, sidebars and footers removed). Use it to read a page found in search results.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: The http(s) URL of the page.
+  llm_description: The absolute http(s) URL of the page.
+  form: llm
+- name: main_content_only
+  type: boolean
+  required: false
+  label:
+    en_US: Main Content Only
+  default: true
+  human_description:
+    en_US: Keep only the article or product and drop menus, sidebars and footers.
+  form: form
+- name: max_characters
+  type: number
+  required: false
+  label:
+    en_US: Max Characters
+  default: 20000
+  human_description:
+    en_US: Cut the returned Markdown at this many characters. The default is 20000.
+  form: form
+extra:
+  python:
+    source: tools/page_content.py

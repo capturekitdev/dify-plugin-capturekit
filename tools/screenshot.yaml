@@ -1,0 +1,84 @@
+identity:
+  name: screenshot
+  author: capturekitdev
+  label:
+    en_US: Screenshot
+description:
+  human:
+    en_US: Take a screenshot of a web page as PNG, JPEG or WebP, or save it as a PDF. Full page or a phone or tablet view. 1 credit.
+  llm: Takes a screenshot of a web page and returns it as an image file (PNG by default, or JPEG, WebP, or a PDF of the page). Set full_page to capture the whole page, or device for a phone or tablet view.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: The http(s) URL of the page.
+  llm_description: The absolute http(s) URL of the page.
+  form: llm
+- name: full_page
+  type: boolean
+  required: false
+  label:
+    en_US: Full Page
+  default: false
+  human_description:
+    en_US: Capture the whole page, not only the visible part.
+  llm_description: true to capture the whole page from top to bottom.
+  form: llm
+- name: device
+  type: select
+  required: false
+  label:
+    en_US: Device
+  options:
+  - value: iphone_14_pro
+    label:
+      en_US: iPhone 14 Pro
+  - value: iphone_14_pro_max
+    label:
+      en_US: iPhone 14 Pro Max
+  - value: iphone_13_mini
+    label:
+      en_US: iPhone 13 mini
+  - value: pixel_7_pro
+    label:
+      en_US: Pixel 7 Pro
+  - value: galaxy_s23
+    label:
+      en_US: Galaxy S23
+  - value: galaxy_s23_ultra
+    label:
+      en_US: Galaxy S23 Ultra
+  - value: ipad
+    label:
+      en_US: iPad
+  human_description:
+    en_US: Show the page as on this phone or tablet. Empty for a desktop browser.
+  form: form
+- name: format
+  type: select
+  required: false
+  label:
+    en_US: Format
+  default: png
+  options:
+  - value: png
+    label:
+      en_US: PNG
+  - value: jpeg
+    label:
+      en_US: JPEG
+  - value: webp
+    label:
+      en_US: WebP
+  - value: pdf
+    label:
+      en_US: PDF
+  human_description:
+    en_US: File format. The default is PNG.
+  form: form
+extra:
+  python:
+    source: tools/screenshot.py

@@ -1,0 +1,31 @@
+identity:
+  name: analyze_page
+  author: capturekitdev
+  label:
+    en_US: Analyze Page
+description:
+  human:
+    en_US: Read a web page with AI and get a summary, value proposition, key features, use cases, audience and contact details. 1 credit.
+  llm: Reads a web page with AI and returns a summary, the value proposition, key features, categories, use cases, target audience, and the emails and phone numbers found. Add custom_prompt for your own question about the page. Use it to qualify a company website quickly.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: The http(s) URL of the page.
+  llm_description: The absolute http(s) URL of the page.
+  form: llm
+- name: custom_prompt
+  type: string
+  required: false
+  label:
+    en_US: Question
+  human_description:
+    en_US: Optional instructions or question for the AI about this page.
+  llm_description: Optional instructions or question for the AI about this page.
+  form: llm
+extra:
+  python:
+    source: tools/analyze_page.py

@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: capturekitdev
+name: capturekit
+label:
+  en_US: CaptureKit
+description:
+  en_US: 'Web pages from CaptureKit: read any page as clean Markdown, take a screenshot or PDF of it (full page or mobile view), or get an AI summary of what the site offers.'
+icon: icon.svg
+created_at: '2026-11-12T00:00:00Z'
+privacy: PRIVACY.md
+repo: https://github.com/capturekitdev/dify-plugin-capturekit
+contact: contact@capturekit.dev
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+  - provider/capturekit.yaml
+meta:
+  version: 0.0.1
+  minimum_dify_version: 1.0.0
+  arch:
+  - amd64
+  - arm64
+  runner:
+    language: python
+    version: '3.12'
+    entrypoint: main
+tags:
+- utilities
+- image
+network:
+  domains:
+  - api.capturekit.dev
